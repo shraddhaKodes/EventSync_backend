@@ -196,7 +196,7 @@ export const forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const resetPasswordUrl = `${process.env.DASHBOARD_URL}/password/reset/${resetToken}`;
 
   // **Email Content**
-  const emailSubject = "STOCK_TRACKER Password Recovery";
+  const emailSubject = "EventSync Password Recovery";
   const emailMessage = `Hello ${user.fullName},\n\nYou requested a password reset. Click the link below to reset your password:\n\n${resetPasswordUrl}\n\nIf you did not request this, please ignore this email.\n\nBest Regards,\nTeam`;
 
   console.log(`📩 Sending password reset email to: ${user.email}`);
