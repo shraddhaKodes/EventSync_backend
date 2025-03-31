@@ -92,13 +92,14 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     .cookie("token", "", {
       httpOnly: true,
       expires: new Date(Date.now()),
+      sameSite: "None",
+      secure: true,
     })
     .json({
       success: true,
       message: "Logged Out!",
     });
-});
-
+})
 export const getUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.user.id);
   res.status(200).json({

@@ -8,9 +8,9 @@ export const generateToken = (user, message, statusCode, res) => {
     .status(statusCode)
     .cookie("token", token, {
       expires: expireDate,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      httpOnly: true, // ✅ Prevents XSS attacks
+      sameSite: "None", // ✅ Prevents CSRF attacks
+      secure: true,
     })
     .json({
       success: true,
